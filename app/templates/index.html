@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <!-- <script>
+      var _theframe = document.getElementById("theframe");
+      _theframe.contentWindow.location.href = _theframe.src;
+    </script> -->
+    <title>Police Stops</title>
+  </head>
+  <body>
+      <h1>Police Stops</h1>
+      <h3>Refine Your Search</h3>
+      <br>
+      <form>
+        <span>Stops from date: <input type="date" name="stop_date_MIN" /> to <input type="date" name="stop_date_MAX" /></span><br>
+        <span>Driver Gender: <select name="driver_gender"> <option value="">All</option> <option value="M">Male</option> <option value="F">Female</option> </select> </span><br>
+        <span>Driver age range: <input type="date" name="driver_age_MIN" /> to <input type="date" name="driver_age_MAX" /></span><br>
+        <span>Driver Race: <select name="driver_race_TUPLE" multiple>
+          <option value="Black">Black</option>
+          <option value="Hispanic">Hispanic</option>
+          <option value="White">White</option>
+          <option value="Asian">Asian</option>
+          <option value="Other">Other</option>
+        </select></span>
+        <span>Violation: <select name="violation_TUPLE" multiple>
+          <option value="DUI">DUI</option>
+          <option value="License">License</option>
+          <option value="Equipment">Equipment</option>
+          <option value="Speeding">Speeding</option>
+          <option value="Paperwork">Paperwork</option>
+          <option value="Other">Other</option>
+        </select></span>
+        <span>Search Conducted: <select name="search_conducted">
+          <option value="">All</option>
+          <option value="t">Yes</option>
+          <option value="f">No</option>
+        </select></span>
+        <span>Search Type: <select name="search_type_TUPLE" multiple>
+          <option value="Incident to Arrest">Incident to Arrest</option>
+          <option value="Consent">Consent</option>
+          <option value="Warrant">Warrant</option>
+        </select></span>
+        <span>Search Outcome: <select name="stop_outcome_TUPLE" multiple>
+          <option value="Misdemeanor Arrest">Misdemeanor Arrest</option>
+          <option value="Citation">Citation</option>
+          <option value="Faulty Equipment Notice">Faulty Equipment Notice</option>
+          <option value="Warning">Warning</option>
+          <option value="Felony Arrest">Felony Arrest</option>
+        </select></span>
+        <span>Officer Gender: <select name="officer_gender"> <option value="">All</option> <option value="M">Male</option> <option value="F">Female</option> </select> </span><br>
+        <span>Officer age range: <input type="date" name="officer_age_MIN" /> to <input type="date" name="officer_age_MAX" /></span><br>
+        <span>Officer Race: <select name="officer_race_TUPLE" multiple>
+          <option value="Black">Black</option>
+          <option value="Hispanic">Hispanic</option>
+          <option value="White">White</option>
+          <option value="Asian">Asian</option>
+          <option value="Other">Other</option>
+        </select></span>
+        <span>Out-of-State Driver: <select name="out_of_state">
+          <option value="">All</option>
+          <option value="t">Yes</option>
+          <option value="f">No</option>
+        </select></span>
+        <input type="submit" value="submit" />
+      </form>
+<!--
+search_type TUPLE
+  Incident to Arrest
+  Consent
+  Incident to Arrest,Inventory
+  Protective Frisk
+  Probable Cause,Protective Frisk
+  Consent,Probable Cause
+  Inventory,Probable Cause
+  Inventory
+  Probable Cause
+  Incident to Arrest,Probable Cause
+  Inventory,Warrant
+  Warrant
+  Inventory,Protective Frisk
+  Consent,Inventory
+officer_rank_TUPLE
+  Probably skip
+-->
+      <br><br>
+      {% include "map.html" %}
+
+  </body>
+</html>
