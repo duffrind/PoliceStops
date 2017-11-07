@@ -3,8 +3,21 @@ from flask import render_template, request
 from app import app
 import viz
 import psycopg2
+import os
+from urllib import parse
 
-conn = psycopg2.connect(dbname='Open_Policing')
+parse.uses_netloc.append("postgres")
+url = parse.urlparse(os.environ["Open_Policing"])
+
+conn = psycopg2.connect(
+    database=url.path[1:],
+    user=url.username,
+    password=url.password,
+    host=url.hostname,
+    port=url.port
+)
+
+#conn = psycopg2.connect(dbname='Open_Policing')
 cur = conn.cursor()
 
 def generateQuery(stop_date_MIN, stop_date_MAX, driver_gender, driver_age_MIN, driver_age_MAX, \
