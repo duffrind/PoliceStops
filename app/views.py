@@ -7,7 +7,7 @@ import os
 from urllib import parse
 
 parse.uses_netloc.append("postgres")
-url = parse.urlparse(os.environ["Open_Policing"])
+url = parse.urlparse(os.environ["DATABASE_URL"])
 
 conn = psycopg2.connect(
     database=url.path[1:],
