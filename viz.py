@@ -4,7 +4,10 @@ import json
 from branca.colormap import linear
 
 def generate(count_dict = {'Charlotte County': 100, 'Seminole County': 100}):
-    colormap = linear.YlGn.scale(min(0, min(count_dict.values())), max(count_dict.values()))
+    if count_dict == {}:
+        colormap = linear.YlGn.scale(0, 0)
+    else:
+        colormap = linear.YlGn.scale(min(0, min(count_dict.values())), max(count_dict.values()))
     us_states = os.path.join('app/data', 'fl_counties.json')
     geo_json_data = json.load(open(us_states))
     m = folium.Map([27.6648, -83.5158], zoom_start=7)
