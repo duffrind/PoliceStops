@@ -29,14 +29,14 @@ officer_gender,  officer_age_MIN,  officer_age_MAX,  officer_race_TUPLE,  office
         else:
             query = query + ' AND'
         query = query + " driver_gender = '" + driver_gender + "'"
-    if driver_age_MIN is not None and len(driver_age_MIN) > 0:
+    if driver_age_MIN is not None:
         if add_where:
             query = query + ' where'
             add_where = False
         else:
             query = query + ' AND'
         query = query + ' driver_age >= ' + str(driver_age_MIN)
-    if driver_age_MAX is not None and len(driver_age_MAX) > 0:
+    if driver_age_MAX is not None:
         if add_where:
             query = query + ' where'
             add_where = False
@@ -85,14 +85,14 @@ officer_gender,  officer_age_MIN,  officer_age_MAX,  officer_race_TUPLE,  office
         else:
             query = query + ' AND'
         query = query + " officer_gender = '" + officer_gender + "'"
-    if officer_age_MIN is not None and len(officer_age_MIN) > 0:
+    if officer_age_MIN is not None:
         if add_where:
             query = query + ' where'
             add_where = False
         else:
             query = query + ' AND'
         query = query + ' officer_age >= ' + str(officer_age_MIN)
-    if officer_age_MAX is not None and len(officer_age_MAX) > 0:
+    if officer_age_MAX is not None:
         if add_where:
             query = query + ' where'
             add_where = False
