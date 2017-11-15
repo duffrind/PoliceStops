@@ -26,7 +26,7 @@ officer_gender,  officer_age_MIN,  officer_age_MAX,  officer_race_TUPLE,  office
     add_where = True
     query = 'select county_name, count(*) from fl_stops'
     if stop_date_MIN is not None and len(stop_date_MIN) > 0:
-        query = query + ' where stop_date >= ' + str(stop_date_MIN)
+        query = query + " where stop_date >= TO_DATE('" + str(stop_date_MIN) + "', 'YYYY-MM-DD')"
         add_where = False
     if stop_date_MAX is not None and len(stop_date_MAX) > 0:
         if add_where:
@@ -34,7 +34,7 @@ officer_gender,  officer_age_MIN,  officer_age_MAX,  officer_race_TUPLE,  office
             add_where = False
         else:
             query = query + ' AND'
-        query = query + ' stop_date <= ' + str(stop_date_MAX)
+        query = query + " stop_date <= TO_DATE('" + str(stop_date_MAX) + "', 'YYYY-MM-DD')"
     if driver_gender is not None and len(driver_gender) > 0:
         if add_where:
             query = query + ' where'
@@ -134,7 +134,7 @@ officer_gender,  officer_age_MIN,  officer_age_MAX,  officer_race_TUPLE,  office
             query = query + ' AND'
         query = query + " out_of_state = '" + str(out_of_state) + "'"
     query = query + ' group by county_name order by county_name;'
-    print(query)
+    #print(query)
     cur.execute(query)
     counties_counts = cur.fetchall()
     counties_dict = dict(counties_counts)
